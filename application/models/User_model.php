@@ -17,6 +17,7 @@ class User_model extends CI_Model {
     }
 
     public function setInfo() {
+
       $this->load->helper('url');
 
       $slug = url_title($this->input->post('title'), 'dash', TRUE);
@@ -38,9 +39,34 @@ class User_model extends CI_Model {
         'company_city' => $this->input->post('company_city'),
         'company_state' => $this->input->post('company_state'),
         'company_zipcode' => $this->input->post('company_zipcode'),
-        'company_phone' => $this->input->post('company_phone')
+        'company_phone' => $this->input->post('company_phone'),
+        'file' => $this->upload->do_upload('userfile'),
       );
 
       return $this->db->insert('UserInfo', $data);
+    }
+
+    public function do_upload()
+    {
+      $config['upload_path']          = './uploads/';
+      $config['allowed_types']        = 'gif|jpg|png';
+      $config['max_size']             = 100;
+      $config['max_width']            = 1024;
+      $config['max_height']           = 768;
+
+      $this->load->library('upload', $config);
+
+      if ( ! $this->upload->do_upload('userfile'))
+      {
+              $error = array('error' => $this->upload->display_errors());
+
+              $this->load->view('users/create', $error);
+      }
+      else
+      {
+              $data = array('upload_data' => $this->upload->data());
+
+              $this->load->view('users/success', $data);
+      }
     }
 }

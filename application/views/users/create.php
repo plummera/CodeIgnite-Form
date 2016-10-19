@@ -2,7 +2,7 @@
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open('users/create'); ?>
+<?php echo form_open_multipart('users/create'); ?>
 
 <label for="first_name">First Name</label>
 <input type="input" name="first_name" /><br />
@@ -48,6 +48,9 @@
 
 <label for="company_phone">Company Phone No.</label>
 <input type="input" name="company_phone" /><br />
+
+<label for="userfile">Upload File:</label>
+<input type="file" name="userfile" /><br />
 
 <input type="submit" name="submit" value="Create a new user" />
 

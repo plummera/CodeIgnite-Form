@@ -32,8 +32,13 @@
     }
 
     public function create() {
+
+      $config['upload_path']      = './upload/';
+      $config['allowed_types']    = 'gif|jpg|png|doc|txt|rtf|docx|pdf|csv';
+
       $this->load->helper('form');
       $this->load->library('form_validation');
+      $this->load->library('upload', $config);
 
       $data['title'] = "Create a new user";
 
