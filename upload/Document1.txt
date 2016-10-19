@@ -1,82 +1,0 @@
-﻿Anthony T. Plummer / Network Security Specialist
-http://anthonyplummer.elementfx.com
-(609)356-0353
-aplummer@psda.com
-
-IT/Web Developer and database administrator with experience in web analysis, design, development, testing and implementation of network applications. Heavy focus on front-end user design and interface, with thorough knowledge of back-end programming and application concepts for distributed communication.
-
-● Thorough understanding of Unix/Linux command-line interface (CLI) environment.
-● Expertise in designing Graphical User Interfaces for Web applications using pre-processed CSS, HTML. (SASS, LESS)
-● Application programming functionality using PHP, JavaScript.
-● Ground-up server configuration and application deployment using LAMP stack.
-● Hands on experience of testing web applications for cross browser compatibility in browsers like IE, Firefox, Chrome, and Safari for mobiles, tablets, and desktops.
-● Familiar with system development life cycle (SDLC) processes, OOP, and box-model grids.
-
-Website Design/Development Skills:
-
-● Front-end UX/UI using CSS pre-processing software.
-● eCommerce development for websites.
-● Back-end database design, programming, and automation.
-● SOAP and API applet design for plugin interface with existing software.
-
-      Technical Skills
-Programming/Scripting LanguagesPHP, Bash, JavaSscriptWeb TechnologiesXML, HTML, AJAX, HTML, CSS (Bootstrap), JSON, SaSS, LESS.Operating SystemsUNIX/LINUX, Windows NT/2000/98/XP, MacOS, iOS, ChromeOS, FreeBSD, SunOS, AIX, HP-UX.Content Management SystemsPostgreSQL, MySQL, Drupal, WordPress.Web/App ServersSymfony2, Node.js, Ruby on Rails.Configuration Tools	LAMP, MVC Framework.Other Tools and LibrariesJQuery, Firebug, Google Developer Tools, Google Drive, Sharepoint, Photoshop, Dreamweaver, NetBeans, PHPStorm, WebStorm, Wordpress, Joomla, Bootstrap, Google Apps, Google Analytics, Toolset, Adobe After Effects CS5, Workbench.
-
-WORK EXPERIENCE
-
-Monticristi LLC, Rutherford, NJ  (start-up/under construction)
-Web Developer, Jan 2016 –April 2016
-➢ Retro-fitted entire stand-alone website to utilize Drupal CMS
-➢ Redesign of MySQL back-end DB
-➢ Front-end re-design for 2016 campaign
-
-University of Pennsylvania, Philadelphia, PA 
-Web Developer, May 2015 – October 2015
-➢ Designed a web app that automatically calculates the total cost of student tuition in their field of choice factoring in qualifiable awards/merits/grants.
-➢ Built out HTML/CSS/JQuery templates from .PSD files using SASS pre-processing.
-➢ Bug tracking in developed web apps using the PHP/Symfony2 architecture.
-
-DeVry Medical International, Iselin, NJ 
-Web Developer, Jun 2014 – Nov 2014
-➢ Developed integrated PHP software for CMS Cloud application deployment.
-➢ Developed custom API for Salesforce.com integration
-➢ Installation and removal of hardware for A/V platforms for web presentations and concepts.
-➢ Maintained security and maintenance for BigData SQL Database.
-➢ Routinely updated both internal and external webservers.
-➢ Drafted and implemented site designs
-
-Braun Research Inc., Princeton, NJ 
-QA Supervisor, Jan 2012 – Aug 2012
-➢ Responsible for training support staff personnel to disseminate sophisticated data metrics for target specific data collection and processing
-➢ Performed critical action routines with disaster recovery methods minimizing conflict and restoring customer support functions. 
-
-Al Salam Aircraft Company, Jeddah, Saudi Arabia
-Private Contractor, Jan 2009 – Jun 2009
-➢ Intermediate Maintenance Depot, General Electric Powerplant consultant to Royal Saudi Airforce.
-➢ Liasoned with Boeing Integrated Defense Systems.
-
-US NAVY, Norfolk, VA 
-Sailor, Apr 2002 – Apr 2006
-➢ Direct involvement in the completion of 79 maintenance actions during Fleet Replacement Squadron (FRS) Carrier Qualification aboard the USS Dwight D. Eisenhower.
-➢ Critical instrument in over 75 special inspections of 16 weapon systems resulting in a 17 percent increase in effectiveness.
-➢ Ensured full compliance to technical orders, manufacturing manuals, blueprints, sketches, and project directives.
-➢ Conducted precision tests and inspections to evaluate quality and performance.
-➢ Performed routine maintenance and troubleshooting repair on tools, equipment, and systems.
-➢ Served Honorably.
-
-
-EDUCATION
-
-Embry-Riddle Aeronautical University, Prescott, AZ
-B.S. Global Security and Intelligence Studies - 2009-2011 & 2013-2014 (Non-Graduate)
-Princeton High School, Princeton, NJ
-H.S. Diploma - 2001
-
-
-ADDITIONAL SKILLS
-
-· Language Proficiency: 
-English (native)
-Spanish (working proficiency) 
-Mandarin (working proficiency)
-Italian (Elementary Proficiency) Application

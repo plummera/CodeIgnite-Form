@@ -33,12 +33,8 @@
 
     public function create() {
 
-      $config['upload_path']      = './upload/';
-      $config['allowed_types']    = 'gif|jpg|png|doc|txt|rtf|docx|pdf|csv';
-
       $this->load->helper('form');
       $this->load->library('form_validation');
-      $this->load->library('upload', $config);
 
       $data['title'] = "Create a new user";
 
@@ -58,6 +54,21 @@
       } else {
         $this->User_model->setInfo();
         $this->load->view('users/success');
+      }
+    }
+
+    public function do_upload($file) {
+
+      $config['upload_path']      = './upload/';
+      $config['allowed_types']    = 'pdf';
+      $config['max_size']         = '100';
+      $config['encrypt_name']        = TRUE;
+
+      $this->load->library('upload', $config);
+
+      if (!$this->upload->do_upload($file)) {
+        $error = array('error' => $this->upload->display_errors());
+        $this->load->view('users/create', $error);
       }
     }
   }
