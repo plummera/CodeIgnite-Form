@@ -1,4 +1,4 @@
-<?php echo '<h2>'.$title.'</h2>'; ?>
+<?php echo '<h2>Whats in here? Take a look...</h2>'; ?>
 
 <table class="table table-inverse">
   <thead>
@@ -22,11 +22,10 @@
     </tr>
   </thead>
   <tbody>
-    <?php for ($i=0;$UserInfo_item.length;$i++) { ?>
+    <?php foreach ($UserInfo_item as $user) { ?>
     <tr>
-      <?php foreach ($UserInfo_item[$i] as $user) { ?>
-      <th scope="row <?php echo $i; ?>"></th>
-      <?php echo '<td>'.$user[$i].'</td>'; }; ?>
+      <th scope="row"></th>
+      <?php echo '<td>'.$user['first_name'].'</td>'; ?>
     </tr>
     <?php  }; ?>
   </tbody>

@@ -24,7 +24,7 @@
         show_404();
       }
 
-      $data['title'] = 'The Underground Lair';
+      $data['title'] = 'CodeIgniter For Fun & Profit';
 
       $this->load->view('templates/header', $data);
       $this->load->view('users/view', $data);
