@@ -1,3 +1,6 @@
 <?php
-  echo '<h2>'.$UserInfo_item['title'].'</h2>';
-  echo $UserInfo_item['text'];
+  echo '<h2>'.$title.'</h2>';
+  echo 'test';
+  foreach ($user in $UserInfo_item):
+    echo $user['first_name'];
+  end foreach
