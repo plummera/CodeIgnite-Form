@@ -22,10 +22,14 @@
     </tr>
   </thead>
   <tbody>
-    <?php foreach ($UserInfo_item as $user) { ?>
+    <?php for ($a=0;$a<count($UserInfo_item);$a++) { ?>
     <tr>
       <th scope="row"></th>
-      <?php echo '<td>'.$user['first_name'].'</td>'; ?>
+      <?php foreach ($UserInfo_item[$a] as $user) {
+              for ($b=0;$b<count($user);$b++) {
+                echo '<td>'.$user.'</td>';
+              };
+            }; ?>
     </tr>
     <?php  }; ?>
   </tbody>
