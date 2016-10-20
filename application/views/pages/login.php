@@ -1,16 +1,17 @@
-<h2><?php echo 'Login to Continue' ?></h2>
+<div class="container">
+  <?php echo validation_errors(); ?>
+  <?php echo form_open('VerifyLogin'); ?>
 
-<h1>Login</h1>
-
-<?php echo validation_errors(); ?>
-<?php echo form_open('VerifyLogin'); ?>
-  <label for="username">Username:</label>
-  <input type="text" size="20" id="username" name="username" />
-  <br />
-
-  <label for="password">Password:</label>
-  <input type="text" size="20" id="password" name="password" />
-  <br />
-
-  <input type="submit" value="login">
-</form>
+    <h2 class="form-signin-heading">Please sign in</h2>
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input type="text" id="inputUsername" class="form-control" placeholder="Enter your Username" required autofocus>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Enter your Password" required>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  </form>
+</div>

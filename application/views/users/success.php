@@ -1,3 +1,1 @@
-<?php
-
-echo "Congratulations! SUCESS!";
+<?php echo "Congratulations! SUCESS!"; ?>

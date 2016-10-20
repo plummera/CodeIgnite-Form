@@ -1,8 +1,7 @@
-<h2><?php echo $title ?></h2>
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open_multipart('users/create'); ?>
+<?php echo form_open('user/create'); ?>
 
 <label for="first_name">First Name</label>
 <input type="input" name="first_name" /><br />

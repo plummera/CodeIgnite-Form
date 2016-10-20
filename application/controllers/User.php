@@ -1,6 +1,6 @@
 <?php
 
-  class Users extends CI_Controller {
+  class User extends CI_Controller {
 
     public function __construct() {
       parent::__construct();
@@ -9,12 +9,21 @@
     }
 
     public function index() {
-      $data['UserInfo'] = $this->User_model->getInfo();
+      $data['UserInfo_item'] = $this->User_model->getInfo();
       $data['title'] = 'The Guest List';
 
-      $this->load->view('templates/header', $data);
-      $this->load->view('users/index', $data);
-      $this->load->view('templates/footer');
+     if($this->session->userdata('logged_in')) {
+        $session_data = $this->session->userdata('logged_in');
+        $data['username'] = $session_data['username'];
+        $data['UserInfo'] = $this->User_model->getInfo();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('users/index', $data);
+        $this->load->view('templates/footer');
+     } else {
+       //If no session, redirect to login page
+       $this->load-view('users/login', $data);
+      }
     }
 
     public function view() {
@@ -32,7 +41,6 @@
     }
 
     public function create() {
-
       $this->load->helper('form');
       $this->load->library('form_validation');
 
@@ -49,7 +57,7 @@
 
       if ($this->form_validation->run() === FALSE) {
         $this->load->view('templates/header', $data);
-        $this->load->view('users/create', $data);
+        $this->load->view('users/create');
         $this->load->view('templates/footer');
       } else {
         $this->User_model->setInfo();

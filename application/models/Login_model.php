@@ -1,6 +1,6 @@
 <?php
 
-  Class Login extends CI_Model {
+  Class Login_model extends CI_Model {
     public function login($username, $password) {
       $this->db->select('id', 'username', 'password');
       $this->db->from('users');
@@ -12,6 +12,7 @@
 
       if($query->num_rows() == 1) {
         return $query->result();
+        $this->load->view('users/index');
       } else {
         return false;
       }

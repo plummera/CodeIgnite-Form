@@ -2,6 +2,7 @@
 class User_model extends CI_Model {
 
     public function __construct() {
+      parent::__construct();
       $this->load->database();
     }
 
@@ -13,7 +14,7 @@ class User_model extends CI_Model {
       }
 
       $query = $this->db->get_where('UserInfo', array('slug' => $slug));
-      return $query->row_array();
+      return $query->row_array($slug);
     }
 
     public function setInfo() {
@@ -42,7 +43,6 @@ class User_model extends CI_Model {
         'company_zipcode' => $this->input->post('company_zipcode'),
         'company_phone' => $this->input->post('company_phone'),
         'file' => $this->upload->do_upload('userfile'),
-        'filename' => $this->input->post($config[''])
       );
 
       return $this->db->insert('UserInfo', $data);

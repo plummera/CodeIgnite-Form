@@ -3,7 +3,7 @@
   class VerifyLogin extends CI_Controller {
     public function __contruct() {
       parent::__construct();
-      $this->load->model('user','',TRUE);
+      $this->load->model('User_model','',TRUE);
     }
 
     public function index() {
