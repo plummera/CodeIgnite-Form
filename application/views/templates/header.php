@@ -17,16 +17,13 @@
   </head>
 
   <body>
-    <div id="header"><h1><?php echo $title; ?></h1></div>
+    <div id="header"><h1>CodeIgniter For Fun & Profit</h1></div>
 
-    <div>
-      <ul class="nav nav-pills">
-        <li role="presentation"><a href="#">Home</a></li>
-        <li role="presentation"><a href="#">Profile</a></li>
-        <li role="presentation"><a href="#">Messages</a></li>
+    <nav class="navbar navbar-dark bg-inverse">
+      <a class="navbar-brand" href="#">GtechNY</a>
+      <ul class="nav navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="<?php echo site_url('/'); ?>">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="<?php echo site_url('users/view'); ?>">View</a></li>
+        <li class="nav-item"><a class="nav-link" href="<?php echo site_url('users/create'); ?>">Upload</a></li>
       </ul>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+    </nav>

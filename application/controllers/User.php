@@ -43,8 +43,14 @@
     public function create() {
       $this->load->helper('form');
       $this->load->library('form_validation');
+      $this->load->model('User_model');
 
-      $data['title'] = "Create a new user";
+      $config['upload_path']      = './upload/';
+      $config['allowed_types']    = 'pdf';
+      $config['max_size']         = '100';
+      $config['encrypt_name']     = FALSE;
+
+      $this->load->library('upload', $config);
 
       $this->form_validation->set_rules('first_name', 'First Name', 'required');
       $this->form_validation->set_rules('last_name', 'Last Name', 'required');
@@ -55,28 +61,17 @@
       $this->form_validation->set_rules('phone', 'Phone Number', 'required');
       $this->form_validation->set_rules('email', 'E-Mail', 'required');
 
-      if ($this->form_validation->run() === FALSE) {
-        $this->load->view('templates/header', $data);
-        $this->load->view('users/create');
+      if ($this->form_validation->run() == FALSE) {
+        $error = array('error' => $this->upload->display_errors());
+        $this->load->view('templates/header');
+        $this->load->view('users/create', $error);
         $this->load->view('templates/footer');
       } else {
+        $data = array('upload_data' => $this->upload->data());
         $this->User_model->setInfo();
-        $this->load->view('users/success');
-      }
-    }
-
-    public function do_upload($file) {
-
-      $config['upload_path']      = './upload/';
-      $config['allowed_types']    = 'pdf';
-      $config['max_size']         = '100';
-      $config['encrypt_name']        = TRUE;
-
-      $this->load->library('upload', $config);
-
-      if (!$this->upload->do_upload($file)) {
-        $error = array('error' => $this->upload->display_errors());
-        $this->load->view('users/create', $error);
+        $this->load->view('templates/header');
+        $this->load->view('users/success', $data);
+        $this->load->view('templates/footer');
       }
     }
   }

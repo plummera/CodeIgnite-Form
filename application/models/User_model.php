@@ -22,11 +22,7 @@ class User_model extends CI_Model {
       $this->load->helper('url');
       $this->load->library('upload');
 
-      $slug = url_title($this->input->post('title'), 'dash', TRUE);
-
       $data = array(
-        // 'title' => $this->input->post('title'),
-        // 'slug' => $slug,
         'first_name' => $this->input->post('first_name'),
         'last_name' => $this->input->post('last_name'),
         'address1' => $this->input->post('address1'),
@@ -42,9 +38,10 @@ class User_model extends CI_Model {
         'company_state' => $this->input->post('company_state'),
         'company_zipcode' => $this->input->post('company_zipcode'),
         'company_phone' => $this->input->post('company_phone'),
-        'file' => $this->upload->do_upload('userfile'),
+        'userfile' => $this->input->post('file'),
       );
 
+      return $this->upload->do_upload('userfile');
       return $this->db->insert('UserInfo', $data);
     }
 }

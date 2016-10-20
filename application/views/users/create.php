@@ -1,6 +1,7 @@
+<br />
 
+<?php echo $error;?>
 <?php echo validation_errors(); ?>
-
 <?php echo form_open('user/create'); ?>
 
 <label for="first_name">First Name</label>
@@ -48,8 +49,8 @@
 <label for="company_phone">Company Phone No.</label>
 <input type="input" name="company_phone" /><br />
 
-<label for="userfile">Upload File:</label>
-<input type="file" name="userfile" /><br />
+<label for="file">Upload File:</label>
+<input type="file" name="file" size="400" /> <br />
 
 <input type="submit" name="submit" value="Create a new user" />
 
