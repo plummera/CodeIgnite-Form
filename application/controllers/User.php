@@ -11,17 +11,21 @@
     }
 
     public function index() {
-       $this->load->view('user/create', array('error' => ' ' ));
+       $this->load->view('templates/header');
+       $this->load->view('users/create', array('error' => ' ' ));
+       $this->load->view('templates/footer');
     }
 
     public function do_upload() {
-       $config['upload_path']   = 'upload/';
+       $config['upload_path']   = './upload/';
        $config['allowed_types'] = 'pdf';
-       $config['max_size']      = 1000000;
+       $config['max_size']      = 0;
 
+       $this->load->library('upload');
        $this->upload->initialize($config);
-var_dump($_FILES);die;
-       if (!$this->upload->do_upload('userfile')) {
+       $userfile = $this->input->post('userfile');
+
+       if (!$this->upload->do_upload(trim($userfile))) {
           $error = array('error' => $this->upload->display_errors());
           $this->load->view('users/upload', $error);
        }
@@ -32,42 +36,42 @@ var_dump($_FILES);die;
        }
     }
 
-    // // Display User homepage
-    // public function userHome() {
-    //
-    //   // fetch Info
-    //   var_dump($this->User_model->getInfo());die;
-    //   $data['UserInfo_item'] = $this->User_model->getInfo();
-    //   $data['title'] = 'The Guest List';
-    //
-    //  if($this->session->userdata('logged_in')) {
-    //     $session_data = $this->session->userdata('logged_in');
-    //     $data['username'] = $session_data['username'];
-    //     $data['UserInfo'] = $this->User_model->getInfo();
-    //
-    //     $this->load->view('templates/header', $data);
-    //     $this->load->view('users/index', $data);
-    //     $this->load->view('templates/footer');
-    //  } else {
-    //    //If no session, redirect to login page
-    //    $this->load->view('users/login', $data);
-    //  }
-    // }
+    // Display User homepage
+    public function userHome() {
+
+      // fetch Info
+      var_dump($this->User_model->getInfo());die;
+      $data['UserInfo_item'] = $this->User_model->getInfo();
+      $data['title'] = 'The Guest List';
+
+     if($this->session->userdata('logged_in')) {
+        $session_data = $this->session->userdata('logged_in');
+        $data['username'] = $session_data['username'];
+        $data['UserInfo'] = $this->User_model->getInfo();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('users/index', $data);
+        $this->load->view('templates/footer');
+     } else {
+       //If no session, redirect to login page
+       $this->load->view('users/login', $data);
+     }
+    }
 
     // Renders Dashboard view
-    // public function view() {
-    //   $data['UserInfo_item'] = $this->User_model->getInfo();
-    //
-    //   if (empty($data['UserInfo_item'])) {
-    //     show_404();
-    //   }
-    //
-    //   $data['title'] = 'CodeIgniter For Fun & Profit';
-    //
-    //   $this->load->view('templates/header', $data);
-    //   $this->load->view('users/view', $data);
-    //   $this->load->view('templates/footer');
-    // }
+    public function view() {
+      $data['UserInfo_item'] = $this->User_model->getInfo();
+
+      if (empty($data['UserInfo_item'])) {
+        show_404();
+      }
+
+      $data['title'] = 'CodeIgniter For Fun & Profit';
+
+      $this->load->view('templates/header', $data);
+      $this->load->view('users/view', $data);
+      $this->load->view('templates/footer');
+    }
 
 
     // Renders Create Entry Page
@@ -87,33 +91,19 @@ var_dump($_FILES);die;
       $this->form_validation->set_rules('zipcode', 'Zipcode', 'required');
       $this->form_validation->set_rules('phone', 'Phone Number', 'required');
       $this->form_validation->set_rules('email', 'E-Mail', 'required');
+      $this->form_validation->set_rules('userfile', 'Upload File', 'required');
 
-      if (!$this->input->post('userfile')) {
-          if (!empty($_FILES['userfile']['name'])) {
-              $this->form_validation->set_rules('userfile', 'Upload File', 'required');
+      $config['upload_path']      = './upload/';
+      $config['allowed_types']    = 'pdf';
+      $config['max_size']         = '0';
+      $config['encrypt_name']     = FALSE;
 
-              $config['upload_path']      = './upload/';
-              $config['allowed_types']    = 'pdf';
-              $config['max_size']         = '1000000000';
-              $config['encrypt_name']     = FALSE;
-
-              $upload = $this->load->library('upload', $config);
-              $this->upload->initialize($config);
-
-              foreach ($_FILES as $key => $value) {
-               $this->upload->do_upload($key);
-              }
-          }
-      }
-
-      // Pass user data to model
-      $insertUserData = $this->User_model->setInfo();
-
-      // echo "<pre>";
-      // var_dump($this->User_model->setInfo());die;
+      $this->load->library('upload', $config);
+      $this->upload->initialize($config);
+      $userfile = $this->input->post('userfile');
 
       // If checks do NOT pass validation
-      if ($this->form_validation->run() === FALSE) {
+      if ($this->form_validation->run() === FALSE && !$this->upload->do_upload(trim($userfile))) {
 
         //Re-direct back to Create Entry Page w/ Errors
         echo "Form not passing validation";
@@ -125,7 +115,10 @@ var_dump($_FILES);die;
       } else {
 
         // Pass User Input
-        $this->User_model->setInfo();
+        $uploadData = array('upload_data' => $this->upload->data());
+
+        $this->User_model->setInfo($uploadData);
+
         $this->load->view('templates/header');
         $this->load->view('users/success', $uploadData);
         $this->load->view('templates/footer');

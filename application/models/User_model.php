@@ -16,10 +16,11 @@ class User_model extends CI_Model {
       return $query->row_array($slug);
     }
 
-    public function setInfo() {
+    public function setInfo($uploadData) {
         $this->load->helper('url');
         // $slug = url_title($this->input->post('first_name'), 'dash', TRUE);
 
+        // var_dump($up);die;
         $data = array(
           // 'slug' => $slug,
           'first_name' => $this->input->post('first_name'),
@@ -37,36 +38,10 @@ class User_model extends CI_Model {
           'company_state' => $this->input->post('company_state'),
           'company_zipcode' => $this->input->post('company_zipcode'),
           'company_phone' => $this->input->post('company_phone'),
-          'userfile' => $_FILES['userfile'],
+          'file' => $_FILES['userfile']['name']
         );
 
-        return $this->db->set('UserInfo', $data);
-    }
-
-    public function setFile() {
-      $this->load->helper(array('form', 'url'));
-
-      $config['upload_path']      = './upload/';
-      $config['allowed_types']    = 'pdf';
-      $config['max_size']         = '1000000000';
-      $config['encrypt_name']     = FALSE;
-
-       $upload = $this->load->library('upload', $config);
-       $this->upload->initialize($config);
-       $file = 'userfile';
-
-       $data = array('upload_data' => $this->upload->data());
-       if (!$this->upload->do_upload($file)) {
-         $error = array('error' => $this->upload->display_errors());
-         echo "Checkpoint #2";
-         $this->load->view('templates/header');
-         $this->load->view('users/create', $error);
-         $this->load->view('templates/footer');
-       } else {
-        $this->load->view('templates/header');
-        $this->load->view('users/success');
-        $this->load->view('templates/footer');
-      }
+        return $this->db->insert('UserInfo', $data);
     }
 
 }

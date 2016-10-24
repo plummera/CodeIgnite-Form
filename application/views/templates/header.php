@@ -17,13 +17,13 @@
   </head>
 
   <body>
-    <div id="header"><h1>CodeIgniter For Fun & Profit</h1></div>
+    <div id="header"><h1>GtechNY</h1></div>
 
     <nav class="navbar navbar-dark bg-inverse">
       <a class="navbar-brand" href="#">GtechNY</a>
       <ul class="nav navbar-nav">
         <li class="nav-item"><a class="nav-link" href="<?php echo site_url('/'); ?>">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="<?php echo site_url('users/view'); ?>">View</a></li>
-        <li class="nav-item"><a class="nav-link" href="<?php echo site_url('users/create'); ?>">Upload</a></li>
+        <li class="nav-item"><a class="nav-link" href="<?php echo site_url('users/index'); ?>">Upload</a></li>
       </ul>
     </nav>

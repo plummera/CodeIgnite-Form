@@ -1,3 +1,4 @@
+<br>
 <?php echo '<h2>Whats in here? Take a look...</h2>'; ?>
 
 <table class="table table-inverse">
@@ -22,13 +23,15 @@
     </tr>
   </thead>
   <tbody>
-    <?php for ($a=0;$a<count($UserInfo_item);$a++) { ?>
+    <?php foreach ($UserInfo_item as $user) { ?>
     <tr>
-      <?php foreach ($UserInfo_item[$a] as $user) {
-              for ($b=0;$b<count($user);$b++) {
-                echo '<td>'.$user.'</td>';
-              };
-            }; ?>
+      <?php foreach ($user as $user_b) { ?>
+        <?php if (end($user)) { ?>
+          <?php echo '<td>test</td>'; ?>
+        <?php } else { ?>
+          <?php echo '<td>'.$userb_b.'</td>'; ?>
+        <?php };?>
+      <?php }; ?>
     </tr>
     <?php  }; ?>
   </tbody>
