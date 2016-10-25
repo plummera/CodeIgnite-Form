@@ -23,15 +23,23 @@
     </tr>
   </thead>
   <tbody>
-    <?php foreach ($UserInfo_item as $user) { ?>
+    <?php foreach ($UserInfo_item as $UserInfo) { ?>
     <tr>
-      <?php foreach ($user as $user_b) { ?>
-        <?php if (end($user)) { ?>
-          <?php echo '<td>test</td>'; ?>
-        <?php } else { ?>
-          <?php echo '<td>'.$userb_b.'</td>'; ?>
-        <?php };?>
-      <?php }; ?>
+      <?php
+        foreach ($UserInfo as $user) {
+          // echo "<pre>";var_dump($UserInfo); die;
+          if ($user == $UserInfo["file"]) {
+            echo '<td>
+                    <a href="'.site_url("../upload/$user").'">
+                    <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+                      <span class="glyphicon glyphicon-icon-level-up" aria-hidden="true"></span>
+                    </a>
+                  </td>';
+          } else {
+            echo '<td>'.$user.'</td>';
+          }
+        };
+      ?>
     </tr>
     <?php  }; ?>
   </tbody>
