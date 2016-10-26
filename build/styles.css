@@ -9,7 +9,6 @@
 
 #header {
   text-align: center;
-  font-size: 22px;
 }
 #header h1 {
   font-size: 5.5rem;
@@ -21,6 +20,21 @@
 .table td {
   border-top: 3px solid #00b8ff;
   border-bottom: 3px solid black;
+}
+
+#signatureHeadline {
+  padding: 1em;
+}
+
+.table-bordered th {
+  border: 0px;
+  text-align: center;
+  text-align: -moz-center;
+  text-align: -webkit-center;
+}
+
+.table thead th {
+  vertical-align: inherit;
 }
 
 /*# sourceMappingURL=styles.css.map */

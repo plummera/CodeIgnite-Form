@@ -44,4 +44,12 @@ class User_model extends CI_Model {
         return $this->db->insert('UserInfo', $data);
     }
 
+    public function getState() {
+      $this->db->select('name');
+      $this->db->from('state');
+      $this->db->order_by('name', 'asc');
+      $query=$this->db->get();
+      return $query;
+    }
+
 }

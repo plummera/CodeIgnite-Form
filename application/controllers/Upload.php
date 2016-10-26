@@ -29,5 +29,6 @@
             $this->load->view('users/success', $data);
          }
       }
+
    }
 ?>

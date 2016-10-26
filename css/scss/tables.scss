@@ -1,0 +1,10 @@
+.table-bordered th {
+  border: 0px;
+  text-align: center;
+  text-align: -moz-center;
+  text-align: -webkit-center;
+}
+
+.table thead th {
+  vertical-align: inherit;
+}

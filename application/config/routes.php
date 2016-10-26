@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['users/upload'] = 'user/do_upload';
 $route['users/info/(:any)'] = 'user/getInfo';
-$route['users/index'] = 'user/index';
+$route['users/index'] = 'user/create';
 $route['users/view'] = 'user/view';
 $route['users/create'] = 'user/create';
 $route['users/(:any)'] = 'user/view/$1';

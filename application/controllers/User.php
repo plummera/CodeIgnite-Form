@@ -93,6 +93,10 @@
       $this->form_validation->set_rules('email', 'E-Mail', 'required');
       $this->form_validation->set_rules('userfile', 'Upload File', 'required');
 
+      $states['list']             = $this->User_model->getState();
+      $statesList                 = '{"AK": "Alaska",    "AZ": "Arizona",    "AR": "Arkansas",    "CA": "California",    "CO": "Colorado",    "CT": "Connecticut",    "DE": "Delaware",    "DC": "District of Columbia",    "FL": "Florida",    "GA": "Georgia",    "HI": "Hawaii",    "ID": "Idaho",    "IL": "Illinois",    "IN": "Indiana",    "IA": "Iowa",    "KS": "Kansas",    "KY": "Kentucky",    "LA": "Louisiana",    "ME": "Maine",    "MD": "Maryland",    "MA": "Massachusetts",    "MI": "Michigan",    "MN": "Minnesota",    "MS": "Mississippi",    "MO": "Missouri",    "MT": "Montana",    "NE": "Nebraska",    "NV": "Nevada",    "NH": "New Hampshire",    "NJ": "New Jersey",    "NM": "New Mexico",    "NY": "New York",    "NC": "North Carolina",    "ND": "North Dakota",    "OH": "Ohio",    "OK": "Oklahoma",    "OR": "Oregon",    "PA": "Pennsylvania",    "RI": "Rhode Island",    "SC": "South Carolina",    "SD": "South Dakota",    "TN": "Tennessee",    "TX": "Texas",    "UT": "Utah",    "VT": "Vermont",    "VA": "Virginia",    "WA": "Washington",    "WV": "West Virginia",    "WI": "Wisconsin",    "WY": "Wyoming"}';
+      $state                      = json_decode($statesList);
+
       $config['upload_path']      = './upload/';
       $config['allowed_types']    = 'pdf';
       $config['max_size']         = '0';
@@ -106,9 +110,11 @@
       if ($this->form_validation->run() === FALSE && !$this->upload->do_upload(trim($userfile))) {
 
         //Re-direct back to Create Entry Page w/ Errors
+        // echo "<pre>";
+        // var_dump($state);die;
         echo "Form not passing validation";
         $this->load->view('templates/header');
-        $this->load->view('users/create', array('error' => ''));
+        $this->load->view('users/create', array('error' => '', 'state' => $state));
         $this->load->view('templates/footer');
 
         // Otherwise

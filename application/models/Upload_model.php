@@ -23,5 +23,7 @@ class Upload_model extends CI_Model
       return $query->row_array();
   }
 
-
-  
+  public function getState() {
+      $states = $this->db->get('state', 'states');
+      var_dump($states);die;
+  }
