@@ -3,7 +3,7 @@
     <br />
 
     <?php echo $error; ?>
-    <!-- <?php echo validation_errors(); ?> -->
+    <?php echo validation_errors(); ?>
     <?php echo form_open_multipart(site_url('users/create')); ?>
 
     <div class="form-group">

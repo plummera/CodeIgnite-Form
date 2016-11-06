@@ -37,4 +37,11 @@
   vertical-align: inherit;
 }
 
+.table td {
+  text-align: center;
+  text-align: -moz-center;
+  text-align: -webkit-center;
+  vertical-align: middle;
+}
+
 /*# sourceMappingURL=styles.css.map */
